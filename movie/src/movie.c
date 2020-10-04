@@ -28,11 +28,12 @@ int admin_login(char *admin_username, char *admin_password)
         printf("\n Invalid Login Credentials! Try Again \n");
         flag_a=0;
     }
+ return(flag_a);
 printf("\n Press Enter to continue \n");
 while((getchar())!='\n'); //clear the input buffer
 getchar();
 system("cls"); // clear screen
-return(flag_a);
+
 }
 
 //Structure to store movie details
