@@ -2,7 +2,7 @@
 PROJECT_NAME = Movie
 
 # Output directory
-BUILD = build/
+BUILD = build
 
 # All source code files
 SRC = main.c\
@@ -50,4 +50,4 @@ clean:
 
 # Create new build folder if not present
 $(BUILD):
-	mkdir build
+	mkdir build/
