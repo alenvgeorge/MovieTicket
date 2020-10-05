@@ -8,6 +8,7 @@
 //extern int flag_u; //flag for user login
 int flag_a=0;
 int flag_u=0;
+char res_log[30];
 
 
 //admin login function
@@ -112,7 +113,7 @@ return "User Registration Successful";
 
 //function for user login
 char* user_login(char *username, char *password)
-{ char res[30];
+{
 
     FILE *fp;
     fp = fopen("user_list.txt","r"); // opens file for reading
@@ -128,17 +129,17 @@ char* user_login(char *username, char *password)
         {
             flag_u=1;
             printf("\n Login successful \n");
-            strcpy(res,"Login successful");
+            strcpy(res_log,"Login successful");
             break;
         }
     }
     if(!flag_u)
     {
     printf("\n Not a registered user \n");
-    strcpy(res,"Not a registered user");
+    strcpy(res_log,"Not a registered user");
     }
 fclose(fp);
-return(res);
+return(res_log);
 
 
 }
