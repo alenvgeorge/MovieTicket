@@ -19,7 +19,7 @@ int admin_login(char *admin_username, char *admin_password);
 char* add_movies(int code, char *name, char *timing, char *date, int price, int seat);
 char* user_reg(char *fname, char*uname, char *pass, char*mob_no);
 char* user_login(char *username, char *password);
-void view_movies();
+int view_movies();
 void book_tickets(char*movie, int seat);
 char* search(char* m_name);
 void view_booked();
