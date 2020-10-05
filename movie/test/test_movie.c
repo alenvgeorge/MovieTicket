@@ -76,6 +76,7 @@ void test_userLogin(void)
 void test_searchM(void)
 {
   CU_ASSERT(0==strcmp("Movie Found", search("onward")));
+  CU_ASSERT(0==strcmp("MOVIE NOT FOUND", search("avengers")));
 }  
 void test_viewM(void)
 { 
