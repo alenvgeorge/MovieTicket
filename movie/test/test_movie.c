@@ -79,5 +79,5 @@ void test_viewM(void)
 }
 void test_book(void)
 {
-  CU_ASSERT(0==strcmp("Details Successfully Saved", book_tickets("onward", 2);                     
+  CU_ASSERT(0==strcmp("Details Successfully Saved", book_tickets("onward", 2)));                     
 }
