@@ -100,6 +100,10 @@ int main()
                         {
 
                         view_bookings();
+                        printf("\n Press Enter to go back to admin panel");
+                        while((getchar())!='\n');
+                        getchar();
+                        system("cls");
                         break;
                         }
                     case 0:
