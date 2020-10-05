@@ -114,6 +114,7 @@ return "User Registration Successful";
 //function for user login
 char* user_login(char *username, char *password)
 {   strcpy(res_log," ");
+    flag_u=0;
 
     FILE *fp;
     fp = fopen("user_list.txt","r"); // opens file for reading
