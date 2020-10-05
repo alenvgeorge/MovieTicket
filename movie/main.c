@@ -210,7 +210,33 @@ int main()
             }
     case 3:
         {
-        user_reg();
+        char fname[30];
+        char uname[20];
+        char pass[20];
+        char mob_no[20];
+        while((getchar())!='\n');
+        printf("\nEnter your full name\t");
+        scanf("%30[^\n]", fname);
+
+        printf("\nEnter your Username\t");
+        while((getchar())!='\n');
+        scanf("%20[^\n]", uname);
+
+        printf("\nEnter your password\t");
+        while((getchar())!='\n');
+        scanf("%20[^\n]", pass);
+
+        printf("\nEnter your mobile number\t");
+        while((getchar())!='\n');
+        scanf("%20[^\n]", mob_no);
+
+        user_reg(fname,uname,pass,mob_no);
+
+        printf("\n Press Enter to continue \n");
+        while((getchar())!='\n');
+        getchar();
+        system("cls");
+
         break;
         }
 
