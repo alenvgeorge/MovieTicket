@@ -13,6 +13,7 @@ void test_userReg(void);
 void test_userLogin(void);
 void test_searchM(void);
 void test_viewM(void);
+void test_book(void);
 
 /* Start of the application test */
 int main() {
@@ -31,7 +32,7 @@ int main() {
   CU_add_test(suite,"userLogin",test_userLogin);
   CU_add_test(suite,"searchMovie",test_searchM);
   CU_add_test(suite,"viewMovie",test_viewM);
-
+  CU_add_test(suite,"BookTicket",test_book);
 
 
 /* Note: Do not edit START*/
@@ -75,4 +76,8 @@ void test_searchM(void)
 void test_viewM(void)
 { 
   CU_ASSERT(0==view_movies());
+}
+void test_book(void)
+{
+  CU_ASSERT(0==strcmp("Details Successfully Saved", book_tickets("onward", 2);                     
 }
