@@ -10,7 +10,7 @@ int flag_a=0;
 int flag_u=0;
 char res_log[30];
 char res_search[30];
-char res_booked[30];
+char res_booked[100];
 
 
 //admin login function
