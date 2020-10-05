@@ -87,25 +87,13 @@ struct user_reg user;
 
 
 //function for user registration
-void user_reg()
+char* user_reg(char *fname, char*uname, char *pass, char*mob_no)
 {
-    system("cls");
-
-    while((getchar())!='\n');
-    printf("\nEnter your full name\t");
-    scanf("%30[^\n]", user.fullname);
-
-    printf("\nEnter your Username\t");
-    while((getchar())!='\n');
-    scanf("%20[^\n]", user.username);
-
-    printf("\nEnter your password\t");
-    while((getchar())!='\n');
-    scanf("%20[^\n]", user.password);
-
-    printf("\nEnter your mobile number\t");
-    while((getchar())!='\n');
-    scanf("%20[^\n]", user.mob_no);
+ system("cls");
+strcpy(user.fullname,fname);
+strcpy(user.username,uname);
+strcpy(user.password,pass);
+strcpy(user.mob_no,mob_no);
 
 FILE *fp;
 fp = fopen("user_list.txt","a"); //opens file for appending
@@ -119,10 +107,7 @@ fwrite(&user, sizeof(struct user_reg),1,fp); //writes structure to file
 printf("\n User Registration Successful \n");
 fclose(fp);
 
-printf("\n Press Enter to continue \n");
-while((getchar())!='\n');
-getchar();
-system("cls");
+return "User Registration Successful";
 
 }
 
