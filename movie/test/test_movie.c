@@ -87,7 +87,6 @@ void test_book(void)
   CU_ASSERT(0==strcmp("Details Successfully Saved", book_tickets("onward", 3)));
   CU_ASSERT(0==strcmp("Invalid Movie Name", book_tickets("avengers",2)));
   CU_ASSERT(0==strcmp("Desired Number of seats are not available", book_tickets("onward", 61)));
-  user_login("renita","123");  
 }
 
 void test_viewB(void)
