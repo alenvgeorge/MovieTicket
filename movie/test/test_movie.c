@@ -1,5 +1,6 @@
 #include <CUnit/Basic.h>
 #include <CUnit/CUnit.h>
+#include<string.h>
 
 /* Modify these two lines according to the project */
 #include <movie.h>
@@ -7,6 +8,7 @@
 
 /* Prototypes for all the test functions */
 void test_admin(void);
+void test_addM(void);
 
 /* Start of the application test */
 int main() {
@@ -20,6 +22,7 @@ int main() {
 
   /* Add your test functions in this format for testing*/
   CU_add_test(suite,"admin",test_admin);
+  CU_add_test(suite,"addM",test_addM);
 
 
 
@@ -43,6 +46,11 @@ void test_admin(void)
     CU_ASSERT(1==admin_login("admin","admin24"));
 
 }
+void test_addM(void)
+{
+  CU_ASSERT(0==strcmp("Movie Details Added Successfully",add_movies(1,"onward","7:30PM","24 September, 2020", 200,60)));
+}
+            
 
 
 
