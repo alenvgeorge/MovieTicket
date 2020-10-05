@@ -21,7 +21,7 @@ char* user_reg(char *fname, char*uname, char *pass, char*mob_no);
 char* user_login(char *username, char *password);
 void view_movies();
 void book_tickets(char*movie, int seat);
-void search(char* m_name);
+char* search(char* m_name);
 void view_booked();
 void view_bookings();
 
