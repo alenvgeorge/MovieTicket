@@ -10,6 +10,7 @@ int flag_a=0;
 int flag_u=0;
 char res_log[30];
 char res_search[30];
+char res_booked[30];
 
 
 //admin login function
@@ -192,8 +193,8 @@ struct book_tickets ticket;
 
 
 //function for ticket bookings
-void book_tickets(char*movie, int seat)
-{
+char *book_tickets(char*movie, int seat)
+{   strcpy(res_booked," ");
     if(flag_u)
     {   int flag=0;
         system("cls");
@@ -235,6 +236,7 @@ void book_tickets(char*movie, int seat)
                     fp2=fopen("booked_tickets.txt","a");
                     fwrite(&ticket, sizeof(struct book_tickets),1,fp2);
                     printf("\nDetails Successfully Saved\n");
+                    strcpy(res_booked,"Details Successfully Saved");
                     fseek(fp, ftell(fp) - sizeof(struct movie_details), SEEK_SET);
                     fwrite(&m, sizeof(struct movie_details),1,fp);
                     printf("Number of seats left are : %d",m.seat_no);
@@ -243,24 +245,29 @@ void book_tickets(char*movie, int seat)
 
                 }
                 else if(ticket.seats==0)
+                {
                     printf("\n You have to book atlease one seat \n");
+                    strcpy(res_booked,"You have to book atlease one seat");
+                }
 
                 else if(ticket.seats<0)
+                {
                     printf("\n Please given a number greater than zero \n");
+                    strcpy(res_booked,"Please given a number greater than zero");
+                }
                 else
+                {
                     printf("\n Desired Number of seats are not available \n");
+                    strcpy(res_booked,"Desired Number of seats are not available");
+                }
                 }
             }
 if(!flag)
 printf("\nInvalid  Movie Name \n");
-
-printf("\nPress Enter to go back to User Panel\n");
-while((getchar())!='\n');
-getchar();
-system("cls");
-
 fclose(fp);
+
     }
+return(res_booked);
 }
 
 //function to search for movies by name
