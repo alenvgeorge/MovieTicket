@@ -113,7 +113,7 @@ return "User Registration Successful";
 
 //function for user login
 char* user_login(char *username, char *password)
-{
+{   strcpy(res_log," ");
 
     FILE *fp;
     fp = fopen("user_list.txt","r"); // opens file for reading
