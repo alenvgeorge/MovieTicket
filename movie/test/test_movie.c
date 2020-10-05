@@ -11,6 +11,7 @@ void test_admin(void);
 void test_addM(void);
 void test_userReg(void);
 void test_userLogin(void);
+void test_searchM(void);
 
 /* Start of the application test */
 int main() {
@@ -27,6 +28,7 @@ int main() {
   CU_add_test(suite,"addM",test_addM);
   CU_add_test(suite,"userReg",test_userReg);
   CU_add_test(suite,"userLogin",test_userLogin);
+  CU_add_test(suite,"searchMovie",test_searchM);
 
 
 
@@ -64,7 +66,9 @@ void test_userLogin(void)
   CU_ASSERT(0==strcmp("Login successful", user_login("alen","123")));
   CU_ASSERT(0==strcmp("Not a registered user", user_login("alsfaafasfen","1234")));
 }
-
-
+void test_searchM(void)
+{
+  CU_ASSERT(0==strcmp("Movie Found", search("onward")));
+}  
 
 
