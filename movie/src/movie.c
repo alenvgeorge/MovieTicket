@@ -9,6 +9,7 @@
 int flag_a=0;
 int flag_u=0;
 char res_log[30];
+char res_search[30];
 
 
 //admin login function
@@ -113,9 +114,9 @@ return "User Registration Successful";
 
 //function for user login
 char* user_login(char *username, char *password)
-{   strcpy(res_log," ");
+{
+    strcpy(res_log," ");
     flag_u=0;
-
     FILE *fp;
     fp = fopen("user_list.txt","r"); // opens file for reading
     if(fp==NULL)
@@ -266,9 +267,9 @@ fclose(fp);
 }
 
 //function to search for movies by name
-void search(char* m_name)
-{   int flag=0;
-
+char* search(char* m_name)
+{   strcpy(res_search," ");
+    int flag=0;
     FILE *fp;
         fp=fopen("movie_list.txt","r");
         if(fp==NULL)
@@ -287,19 +288,19 @@ void search(char* m_name)
                     printf("\n       Show Timing     : %s \n",m.show_timing);
                     printf("\n       Ticket Price    : %d \n",m.ticket_price);
                     printf("\n       Available Seats : %d \n",m.seat_no);
+                    strcpy(res_search,"Movie Found");
                     flag=1;
                 }
         }
         if(!flag)
+        {
             printf("\nMOVIE NOT FOUND\n");
+            strcpy(res_search,"MOVIE NOT FOUND");
+        }
 
         printf("\n********************************************************************************************\n");
 fclose(fp);
-
-printf("Press Enter to continue");
-while((getchar())!='\n');
-getchar();
-system("cls");
+return(res_search);
 }
 
 //funtion for user to see his/her booked tickets
