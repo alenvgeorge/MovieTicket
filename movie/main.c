@@ -154,6 +154,11 @@ int main()
                             {
 
                             view_movies();
+                            printf("\n Press Enter to go to User Panel \n");
+                            while((getchar())!='\n');
+                            getchar();
+                            system("cls");
+
                             break;
                             }
                         case 2:
