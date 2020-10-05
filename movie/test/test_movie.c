@@ -62,7 +62,7 @@ void test_userReg(void)
 void test_userLogin(void)
 {
   CU_ASSERT(0==strcmp("Login successful", user_login("alen","123")));
-  CU_ASSERT(0==strcmp("Login successful", user_login("alsfaafasfen","1234")));
+  CU_ASSERT(0==strcmp("Not a registered user", user_login("alsfaafasfen","1234")));
 }
 
 
