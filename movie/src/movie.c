@@ -147,7 +147,7 @@ return(res_log);
 }
 
 //function to view available movies
-void view_movies()
+int view_movies()
 {
     if(flag_u)
     {
@@ -174,10 +174,7 @@ void view_movies()
    fclose(fp);
 }
 
-printf("\n Press Enter to go to User Panel \n");
-while((getchar())!='\n');
-getchar();
-system("cls");
+return 0;
 
 }
 
