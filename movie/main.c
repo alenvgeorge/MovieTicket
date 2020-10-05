@@ -201,7 +201,13 @@ int main()
                                 printf("Enter the name of the movie you want to search:\t");
                                 while((getchar())!='\n');
                                 scanf("%60[^\n]",m_name);
+
                                 search(m_name);
+
+                                printf("Press Enter to continue");
+                                while((getchar())!='\n');
+                                getchar();
+                                system("cls");
                             break;
                             }
                         case 0:
