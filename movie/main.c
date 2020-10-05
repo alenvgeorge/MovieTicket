@@ -37,6 +37,10 @@ int main()
     scanf("%19s",admin_password);
 
     admin_login(admin_username,admin_password);
+    printf("\n Press Enter to continue \n");
+    while((getchar())!='\n'); //clear the input buffer
+    getchar();
+    system("cls"); // clear screen
 
         if(flag_a)
         {
@@ -84,6 +88,11 @@ int main()
                         scanf("%d", &seat);
 
                         add_movies(code,name,timing,date,price,seat);
+
+                        printf("\n Press Enter to continue \n");
+                        while((getchar())!='\n');
+                        getchar();
+                        system("cls");
 
                         break;
                         }
