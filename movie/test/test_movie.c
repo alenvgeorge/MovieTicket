@@ -86,6 +86,6 @@ void test_book(void)
 
 void test_viewB(void)
 {
-  CU_ASSERT(0==strcmp("Showing Booked tickets", view_booked());    
+  CU_ASSERT(0==strcmp("Showing Booked tickets", view_booked()));    
 }
   
