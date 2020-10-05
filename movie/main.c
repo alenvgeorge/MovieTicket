@@ -203,6 +203,11 @@ int main()
                         case 3:
                             {
                             view_booked();
+                            printf("\nPress Enter to continue\n");
+                            while((getchar())!='\n');
+                            getchar();
+                            system("cls");
+
                             break;
                             }
                         case 4:
