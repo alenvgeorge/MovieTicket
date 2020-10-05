@@ -28,11 +28,7 @@ int admin_login(char *admin_username, char *admin_password)
         printf("\n Invalid Login Credentials! Try Again \n");
         flag_a=0;
     }
- return(flag_a);
-printf("\n Press Enter to continue \n");
-while((getchar())!='\n'); //clear the input buffer
-getchar();
-system("cls"); // clear screen
+    return(flag_a);
 
 }
 
@@ -49,7 +45,7 @@ struct movie_details
 struct movie_details m;
 
 //function to add movie
-void add_movies(int code, char *name, char *timing, char *date, int price, int seat)
+char* add_movies(int code, char *name, char *timing, char *date, int price, int seat)
 {
   if(flag_a) //if admin login is successful
   {
@@ -73,14 +69,9 @@ void add_movies(int code, char *name, char *timing, char *date, int price, int s
 
    fclose(fp);
 
-   printf("\n Press Enter to continue \n");
-   while((getchar())!='\n');
-   getchar();
-   system("cls");
-
 
   }
-
+return "Movie Details Added Successfully";
 
 }
 
