@@ -10,6 +10,7 @@
 void test_admin(void);
 void test_addM(void);
 void test_userReg(void);
+void test_userLogin(void);
 
 /* Start of the application test */
 int main() {
@@ -25,6 +26,7 @@ int main() {
   CU_add_test(suite,"admin",test_admin);
   CU_add_test(suite,"addM",test_addM);
   CU_add_test(suite,"userReg",test_userReg);
+  CU_add_test(suite,"userLogin",test_userLogin);
 
 
 
@@ -55,6 +57,11 @@ void test_addM(void)
 void test_userReg(void)
 {
   CU_ASSERT(0==strcmp("User Registration Successful", user_reg("Alen V George", "alen", "123", "9388094648")));
+}
+
+void test_userLogin(void)
+{
+  CU_ASSERT(0=strcmp("Login successful", user_login("alen","123")));
 }
 
 
