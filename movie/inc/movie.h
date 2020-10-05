@@ -16,7 +16,7 @@ extern struct movie_details m;
 
 struct movie_details m;
 int admin_login(char *admin_username, char *admin_password);
-void add_movies(int code, char *name, char *timing, char *date, int price, int seat);
+char* add_movies(int code, char *name, char *timing, char *date, int price, int seat);
 void user_reg();
 void user_login(char *username, char *password);
 void view_movies();
