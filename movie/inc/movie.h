@@ -23,7 +23,7 @@ int view_movies();
 char *book_tickets(char*movie, int seat);
 char* search(char* m_name);
 char *view_booked();
-void view_bookings();
+int view_bookings();
 
 
 #endif // __MOVIE_H__
