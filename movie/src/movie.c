@@ -17,7 +17,8 @@ char res_viewB[100];
 //admin login function
 
 int admin_login(char *admin_username, char *admin_password)
-{   char username[20]="admin";
+{   flag_a=0;
+    char username[20]="admin";
     char password[20]="admin24";
 
 
