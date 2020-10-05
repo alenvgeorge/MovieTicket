@@ -15,6 +15,7 @@ void test_searchM(void);
 void test_viewM(void);
 void test_book(void);
 void test_viewB(void);
+void test_viewBs(void);
 
 /* Start of the application test */
 int main() {
@@ -35,7 +36,7 @@ int main() {
   CU_add_test(suite,"viewMovie",test_viewM);
   CU_add_test(suite,"BookTicket",test_book);
   CU_add_test(suite,"ViewBooked",test_viewB);
-
+  CU_add_test(suite,"ViewBookings",test_viewBs);
 
 /* Note: Do not edit START*/
   /* Setup Test Framework to output the result to Screen */
@@ -87,5 +88,9 @@ void test_book(void)
 void test_viewB(void)
 {
   CU_ASSERT(0==strcmp("Showing Booked tickets", view_booked()));    
+}
+void test_viewBs(void)
+{
+  CU_ASSERT(0==view_bookings());
 }
   
