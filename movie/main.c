@@ -193,6 +193,11 @@ int main()
                             scanf("%d", &seat);
 
                             book_tickets(movie,seat);
+
+                            printf("\nPress Enter to go back to User Panel\n");
+                            while((getchar())!='\n');
+                            getchar();
+                            system("cls");
                             break;
                             }
                         case 3:
