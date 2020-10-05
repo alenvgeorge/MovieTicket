@@ -111,8 +111,8 @@ return "User Registration Successful";
 }
 
 //function for user login
-void user_login(char *username, char *password)
-{
+char* user_login(char *username, char *password)
+{ char res[30];
 
     FILE *fp;
     fp = fopen("user_list.txt","r"); // opens file for reading
@@ -128,16 +128,17 @@ void user_login(char *username, char *password)
         {
             flag_u=1;
             printf("\n Login successful \n");
+            strcpy(res,"Login successful");
             break;
         }
     }
     if(!flag_u)
+    {
     printf("\n Not a registered user \n");
-
-printf("\n Press Enter to continue \n");
-while((getchar())!='\n');
-getchar();
-system("cls");
+    strcpy(res,"Not a registered user");
+    }
+fclose(fp);
+return(res);
 
 
 }
