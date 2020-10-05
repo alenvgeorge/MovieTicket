@@ -22,7 +22,7 @@ char* user_login(char *username, char *password);
 int view_movies();
 char *book_tickets(char*movie, int seat);
 char* search(char* m_name);
-void view_booked();
+char *view_booked();
 void view_bookings();
 
 
