@@ -54,7 +54,7 @@ int main() {
 /* Write all the test functions */
 
 void test_admin(void)
-{   CU_ASSERT(0=admin_login("admin","admin123"));
+{   CU_ASSERT(0==admin_login("admin","admin123"));
     CU_ASSERT(1==admin_login("admin","admin24"));
 
 }
