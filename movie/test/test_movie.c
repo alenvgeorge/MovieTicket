@@ -65,6 +65,7 @@ void test_addM(void)
 void test_userReg(void)
 {
   CU_ASSERT(0==strcmp("User Registration Successful", user_reg("Alen V George", "alen", "123", "9388094648")));
+   CU_ASSERT(0==strcmp("User Registration Successful", user_reg("Renita George", "renita", "123", "9495847511")));
 }
 
 void test_userLogin(void)
@@ -82,7 +83,10 @@ void test_viewM(void)
 }
 void test_book(void)
 {
-  CU_ASSERT(0==strcmp("Details Successfully Saved", book_tickets("onward", 2)));                     
+  CU_ASSERT(0==strcmp("Details Successfully Saved", book_tickets("onward", 2)));
+  user_login("renita","123");
+  CU_ASSERT(0==strcmp("Details Successfully Saved", book_tickets("onward", 3)));
+  
 }
 
 void test_viewB(void)
