@@ -11,6 +11,7 @@ int flag_u=0;
 char res_log[30];
 char res_search[30];
 char res_booked[100];
+char res_viewB[100];
 
 
 //admin login function
@@ -308,8 +309,8 @@ return(res_search);
 }
 
 //funtion for user to see his/her booked tickets
-void view_booked()
-{
+char *view_booked()
+{   strcpy(res_viewB, " ");
     if(flag_u)
     {
         int flag=0;
@@ -330,18 +331,17 @@ void view_booked()
                     printf("         Amount payable  : %d \n",ticket.amount);
                     printf("\n");
                     printf("\n********************************************************************************************\n");
-
+                    strcpy(res_viewB, "Showing Booked tickets");
         }
         }
 if(!flag)
+{
 printf("\nYou have not booked any tickets! \n");
+strcpy(res_viewB, "You have not booked any tickets!");
+}
 fclose(fp);
 }
-
-printf("\nPress Enter to continue\n");
-while((getchar())!='\n');
-getchar();
-system("cls");
+return(res_viewB);
 }
 
 //function for admins to view all booked tickets
