@@ -9,6 +9,7 @@
 /* Prototypes for all the test functions */
 void test_admin(void);
 void test_addM(void);
+void test_userReg(void);
 
 /* Start of the application test */
 int main() {
@@ -23,6 +24,7 @@ int main() {
   /* Add your test functions in this format for testing*/
   CU_add_test(suite,"admin",test_admin);
   CU_add_test(suite,"addM",test_addM);
+  CU_add_test(suite,"userReg",test_userReg);
 
 
 
@@ -50,7 +52,10 @@ void test_addM(void)
 {
   CU_ASSERT(0==strcmp("Movie Details Added Successfully",add_movies(1,"onward","7:30PM","24 September, 2020", 200,60)));
 }
-            
+void test_userReg(void)
+{
+  CU_ASSERT(0==strcmp("User Registration Successful", user_reg("Alen V George", "alen", "123", "9388094648")));
+}
 
 
 
