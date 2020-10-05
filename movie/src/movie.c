@@ -265,7 +265,10 @@ char *book_tickets(char*movie, int seat)
                 }
             }
 if(!flag)
-printf("\nInvalid  Movie Name \n");
+{
+printf("\nInvalid Movie Name \n");
+strcpy(res_booked,"Invalid Movie Name");
+}
 fclose(fp);
 
     }
