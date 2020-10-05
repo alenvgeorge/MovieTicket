@@ -54,7 +54,7 @@ int main() {
 /* Write all the test functions */
 
 void test_admin(void)
-{
+{   CU_ASSERT(0=admin_login("admin","admin123"));
     CU_ASSERT(1==admin_login("admin","admin24"));
 
 }
@@ -64,14 +64,14 @@ void test_addM(void)
 }
 void test_userReg(void)
 {
-  CU_ASSERT(0==strcmp("User Registration Successful", user_reg("Alen V George", "alen", "123", "9388094648")));
+  CU_ASSERT(0==strcmp("User Registration Successful", user_reg("Alen V George", "alen", "alen123", "9388094648")));
    CU_ASSERT(0==strcmp("User Registration Successful", user_reg("Renita George", "renita", "123", "9495847511")));
 }
 
 void test_userLogin(void)
 {
-  CU_ASSERT(0==strcmp("Not a registered user", user_login("alsfaafasfen","1234")));
-  CU_ASSERT(0==strcmp("Login successful", user_login("alen","123")));
+  CU_ASSERT(0==strcmp("Not a registered user", user_login("alen","alen234")));
+  CU_ASSERT(0==strcmp("Login successful", user_login("alen","alen123")));
 }
 void test_searchM(void)
 {
@@ -85,6 +85,7 @@ void test_viewM(void)
 void test_book(void)
 {
   CU_ASSERT(0==strcmp("Details Successfully Saved", book_tickets("onward", 2)));
+  CU_ASSERT(0==strcmp("Invalid Movie Name ", book_tickets("avengers",2)));
   user_login("renita","123");
   CU_ASSERT(0==strcmp("Details Successfully Saved", book_tickets("onward", 3)));
   
