@@ -345,7 +345,7 @@ return(res_viewB);
 }
 
 //function for admins to view all booked tickets
-void view_bookings()
+int view_bookings()
 {
    if(flag_a)
     {   int sum=0;
@@ -378,9 +378,6 @@ while(fread(&m, sizeof(struct movie_details),1,fp2))
     fclose(fp);
     fclose(fp2);
 }
-printf("\n Press Enter to go back to admin panel");
-while((getchar())!='\n');
-getchar();
-system("cls");
+return 0;
 }
 
