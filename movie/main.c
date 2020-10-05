@@ -127,7 +127,14 @@ int main()
                 printf("           Enter password: \t");
                 while((getchar())!='\n');
                 scanf("%20[^\n]", password);
+
                 user_login(username,password);
+
+                printf("\n Press Enter to continue \n");
+                while((getchar())!='\n');
+                getchar();
+                system("cls");
+
                 if(flag_u)
                     {
                     int ch3;
