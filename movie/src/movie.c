@@ -89,7 +89,6 @@ struct user_reg user;
 //function for user registration
 char* user_reg(char *fname, char*uname, char *pass, char*mob_no)
 {
- system("cls");
 strcpy(user.fullname,fname);
 strcpy(user.username,uname);
 strcpy(user.password,pass);
