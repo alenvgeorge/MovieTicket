@@ -1,4 +1,8 @@
-
+/** 
+* @file movie.h
+* Movie Ticket Booking Application
+*
+*/
 #ifndef __MOVIE_H__
 #define __MOVIE_H__
 
@@ -15,6 +19,13 @@ struct movie_details
 extern struct movie_details m;
 
 struct movie_details m;
+
+/**
+*  Function to validate admin login
+* @param[in] admin_username 
+* @param[in] admin_password
+* @return Pass/Fail status of login
+*/
 int admin_login(char *admin_username, char *admin_password);
 char* add_movies(int code, char *name, char *timing, char *date, int price, int seat);
 char* user_reg(char *fname, char*uname, char *pass, char*mob_no);
