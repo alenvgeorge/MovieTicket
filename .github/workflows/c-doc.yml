@@ -13,6 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      
+    - name: Install Doxygen
+      run: sudo apt-get install -y doxygen
     - name: make doc
       run:  make doc -C movie/
