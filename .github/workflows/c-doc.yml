@@ -21,7 +21,7 @@ jobs:
       run: |
         git config --local user.email "alenvgeorge98@gmail.com"
         git config --local user.name "alenvgeorge"
-        git add -A git commit -m "commit message"
+        git add -A
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
