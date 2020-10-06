@@ -20,5 +20,5 @@ jobs:
     - name: make test
       run: |
         make test -C movie/
-        valgrind .movie/build/Test_Movie.out
+        valgrind ./movie/build/Test_Movie.out
 
