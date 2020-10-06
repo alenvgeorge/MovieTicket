@@ -27,4 +27,4 @@ jobs:
           # Stage the file, commit and push
           git add -A
           git commit -m "Doc Changes"
-          git push origin master
+          git push origin main
