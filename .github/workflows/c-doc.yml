@@ -17,8 +17,14 @@ jobs:
       run: sudo apt-get install -y doxygen
     - name: make doc
       run:  make doc -C movie/
-    - name: Commit files
+    - name: setup git config
       run: |
-        git config --local user.email "alenvgeorge98@gmail.com"
-        git config --local user.name "alenvgeorge"
-        git add -A
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+    - name: commit
+      run: |
+          # Stage the file, commit and push
+          git add -A
+          git commit -m "Doc Changes"
+          git push origin master
