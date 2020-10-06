@@ -4,10 +4,9 @@
 #include<string.h>
 
 
-//extern int flag_a;//flag for admin login
-//extern int flag_u; //flag for user login
-int flag_a=0;
-int flag_u=0;
+ //flag for user login
+int flag_a=0; //flag for admin login
+int flag_u=0; //flag for user login
 char res_log[30];
 char res_search[30];
 char res_booked[100];
@@ -17,7 +16,8 @@ char res_viewB[100];
 //admin login function
 
 int admin_login(char *admin_username, char *admin_password)
-{   flag_a=0;
+{
+    flag_a=0;
     char username[20]="admin";
     char password[20]="admin24";
 
@@ -50,29 +50,29 @@ struct movie_details
 struct movie_details m;
 
 //function to add movie
-char* add_movies(int code, char *name, char *timing, char *date, int price, int seat)
+char* add_movies(int movie_code, char *movie_name, char *show_timing, char *release_date, int ticket_price, int seats)
 {
   if(flag_a) //if admin login is successful
   {
-   FILE *fp;
-   fp=fopen("movie_list.txt","a"); //opens file to append
-   if(fp==NULL)
-   {
+    FILE *fp;
+    fp=fopen("movie_list.txt","a"); //opens file to append
+    if(fp==NULL)
+     {
        printf("\n File not found \n");
        exit(1);
-   }
+     }
 
-    m.movie_code=code;
-    strcpy(m.movie_name,name);
-    strcpy(m.show_timing,timing);
-    strcpy(m.release_date,date);
-    m.ticket_price=price;
-    m.seat_no=seat;
+     m.movie_code=movie_code;
+     strcpy(m.movie_name,movie_name);
+     strcpy(m.show_timing,show_timing);
+     strcpy(m.release_date,release_date);
+     m.ticket_price=ticket_price;
+     m.seat_no=seats;
 
-   fwrite(&m,sizeof(struct movie_details), 1, fp); //writing structure to file
-   printf("\nMovie Details Successfully added\n");
+    fwrite(&m,sizeof(struct movie_details), 1, fp); //writing structure to file
+    printf("\nMovie Details Successfully added\n");
 
-   fclose(fp);
+    fclose(fp);
 
 
   }
@@ -92,12 +92,12 @@ struct user_reg user;
 
 
 //function for user registration
-char* user_reg(char *fname, char*uname, char *pass, char*mob_no)
+char* user_reg(char *fullname, char*username, char *password, char*mobile_no)
 {
-strcpy(user.fullname,fname);
-strcpy(user.username,uname);
-strcpy(user.password,pass);
-strcpy(user.mob_no,mob_no);
+strcpy(user.fullname,fullname);
+strcpy(user.username,username);
+strcpy(user.password,password);
+strcpy(user.mob_no,mobile_no);
 
 FILE *fp;
 fp = fopen("user_list.txt","a"); //opens file for appending
@@ -159,12 +159,11 @@ int view_movies()
    fp=fopen("movie_list.txt","r"); // opens file for reading
    if(fp==NULL)
    {
-       printf("FILE NOT FOUND");
-       exit(1);
+       printf("\n No Movies Available \n");
    }
-
+else{
    printf("\n********************************  MOVIES AVAILABLE ***********************************\n");
-   printf("\n               | NAME     | SHOW TIMING   |   DATE     | ");
+   printf("\n               | NAME     | SHOW TIMING   |     DATE        | ");
    printf("\n                ---------------------------------------\n");
    while(fread(&m, sizeof(struct movie_details),1,fp)) //reads file till EOF
    {
@@ -174,7 +173,8 @@ int view_movies()
      printf("\n");
    }
    printf("\n***************************************************************************************\n");
-   fclose(fp);
+}
+fclose(fp);
 }
 
 return 0;
@@ -203,6 +203,11 @@ char *book_tickets(char*movie, int seat)
 
         FILE *fp;
         fp=fopen("movie_list.txt","r+"); //opening file for reading and writing
+        if(fp==NULL)
+        {
+            printf("\n FILE NOT FOUND \n");
+            exit(1);
+        }
 
         strcpy(ticket.movie_name,movie);
 
@@ -236,6 +241,11 @@ char *book_tickets(char*movie, int seat)
 
                     FILE *fp2;
                     fp2=fopen("booked_tickets.txt","a");
+                     if(fp2==NULL)
+                    {
+                    printf("\n FILE NOT FOUND \n");
+                    exit(1);
+                    }
                     fwrite(&ticket, sizeof(struct book_tickets),1,fp2);
                     printf("\nDetails Successfully Saved\n");
                     strcpy(res_booked,"Details Successfully Saved");
@@ -265,10 +275,7 @@ char *book_tickets(char*movie, int seat)
                 }
             }
 if(!flag)
-{
-printf("\nInvalid Movie Name \n");
-strcpy(res_booked,"Invalid Movie Name");
-}
+printf("\nInvalid  Movie Name \n");
 fclose(fp);
 
     }
@@ -320,6 +327,11 @@ char *view_booked()
         int flag=0;
         FILE *fp;
         fp = fopen("booked_tickets.txt","r");
+        if(fp==NULL)
+        {
+            printf("\n FILE NOT FOUND \n");
+            exit(1);
+        }
 
         while(fread(&ticket,sizeof(struct book_tickets),1,fp))
         {
@@ -371,6 +383,11 @@ int view_bookings()
               }
     FILE *fp2;
     fp2=fopen("movie_list.txt","r");
+    if(fp2==NULL)
+    {
+        printf("FILE NOT FOUND");
+        exit(1);
+    }
     //summary of all bookings
     printf("\n ********************************* SUMMARY ****************************************\n");
 while(fread(&m, sizeof(struct movie_details),1,fp2))
